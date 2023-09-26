@@ -155,6 +155,11 @@ class MainActivity : AppCompatActivity() {
             if (checkSelfPermission(android.Manifest.permission.MANAGE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 permissionList.add(android.Manifest.permission.MANAGE_EXTERNAL_STORAGE)
             }
+            if (checkSelfPermission(android.Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    permissionList.add(android.Manifest.permission.READ_MEDIA_IMAGES)
+                }
+            }
         }
 
         if (permissionList.size > 0) {
